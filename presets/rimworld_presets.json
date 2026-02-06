@@ -1,0 +1,94 @@
+﻿{
+  "presets": {
+    "ThingDef - Resource (Stuff)": {
+      "description": "A resource item that can be used as stuff/material for construction - Based on Steel from Core",
+      "root_tag": "ThingDef",
+      "xml": "<ThingDef ParentName=\"ResourceBase\">\n  <defName>MyResource</defName>\n  <label>my resource</label>\n  <description>A useful resource.</description>\n  <graphicData>\n    <texPath>Things/Item/Resource/MyResource</texPath>\n    <graphicClass>Graphic_StackCount</graphicClass>\n  </graphicData>\n  <soundInteract>Metal_Drop</soundInteract>\n  <soundDrop>Metal_Drop</soundDrop>\n  <statBases>\n    <MarketValue>2.0</MarketValue>\n    <Mass>0.5</Mass>\n    <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>\n    <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>\n    <StuffPower_Armor_Heat>0.60</StuffPower_Armor_Heat>\n    <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>\n    <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>\n    <SharpDamageMultiplier>1</SharpDamageMultiplier>\n    <BluntDamageMultiplier>1</BluntDamageMultiplier>\n  </statBases>\n  <useHitPoints>false</useHitPoints>\n  <healthAffectsPrice>false</healthAffectsPrice>\n  <thingCategories>\n    <li>ResourcesRaw</li>\n  </thingCategories>\n  <burnableByRecipe>false</burnableByRecipe>\n  <smeltable>true</smeltable>\n  <stuffProps>\n    <categories>\n      <li>Metallic</li>\n    </categories>\n    <appearance>Metal</appearance>\n    <commonality>1.00</commonality>\n    <constructEffect>ConstructMetal</constructEffect>\n    <color>(105,105,105)</color>\n    <statFactors>\n      <MaxHitPoints>1</MaxHitPoints>\n      <Beauty>1</Beauty>\n      <Flammability>0.4</Flammability>\n    </statFactors>\n  </stuffProps>\n  <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>\n</ThingDef>"
+    },
+    "ThingDef - Building (Production)": {
+      "description": "A production building/workbench - Based on Electric Smithy from Core",
+      "root_tag": "ThingDef",
+      "xml": "<ThingDef ParentName=\"BenchBase\">\n  <defName>MyWorkbench</defName>\n  <label>my workbench</label>\n  <description>A workbench for crafting items.</description>\n  <thingClass>Building_WorkTable</thingClass>\n  <graphicData>\n    <texPath>Things/Building/Production/MyWorkbench</texPath>\n    <graphicClass>Graphic_Multi</graphicClass>\n    <drawSize>(3.5,1.5)</drawSize>\n  </graphicData>\n  <castEdgeShadows>true</castEdgeShadows>\n  <staticSunShadowHeight>0.20</staticSunShadowHeight>\n  <costList>\n    <Steel>100</Steel>\n    <ComponentIndustrial>3</ComponentIndustrial>\n  </costList>\n  <altitudeLayer>Building</altitudeLayer>\n  <fillPercent>0.5</fillPercent>\n  <useHitPoints>True</useHitPoints>\n  <statBases>\n    <WorkToBuild>3000</WorkToBuild>\n    <MaxHitPoints>180</MaxHitPoints>\n    <Flammability>1.0</Flammability>\n  </statBases>\n  <size>(3,1)</size>\n  <designationCategory>Production</designationCategory>\n  <passability>PassThroughOnly</passability>\n  <pathCost>50</pathCost>\n  <hasInteractionCell>True</hasInteractionCell>\n  <interactionCellOffset>(0,0,-1)</interactionCellOffset>\n  <surfaceType>Item</surfaceType>\n  <inspectorTabs>\n    <li>ITab_Bills</li>\n  </inspectorTabs>\n  <building>\n    <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>\n  </building>\n  <comps>\n    <li Class=\"CompProperties_Power\">\n      <compClass>CompPowerTrader</compClass>\n      <basePowerConsumption>210</basePowerConsumption>\n    </li>\n    <li Class=\"CompProperties_Flickable\"/>\n  </comps>\n  <placeWorkers>\n    <li>PlaceWorker_PreventInteractionSpotOverlap</li>\n  </placeWorkers>\n  <researchPrerequisites>\n    <li>Smithing</li>\n    <li>Electricity</li>\n  </researchPrerequisites>\n</ThingDef>"
+    },
+    "RecipeDef - Basic Recipe": {
+      "description": "A crafting recipe for a production bench - Based on Make_ComponentIndustrial from Core",
+      "root_tag": "RecipeDef",
+      "xml": "<RecipeDef>\n  <defName>Make_MyItem</defName>\n  <label>make my item</label>\n  <description>Craft my item.</description>\n  <jobString>Making item.</jobString>\n  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>\n  <effectWorking>Cook</effectWorking>\n  <soundWorking>Recipe_Machining</soundWorking>\n  <workAmount>5000</workAmount>\n  <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>\n  <ingredients>\n    <li>\n      <filter>\n        <thingDefs>\n          <li>Steel</li>\n        </thingDefs>\n      </filter>\n      <count>25</count>\n    </li>\n  </ingredients>\n  <fixedIngredientFilter>\n    <thingDefs>\n      <li>Steel</li>\n    </thingDefs>\n  </fixedIngredientFilter>\n  <products>\n    <MyItem>1</MyItem>\n  </products>\n  <skillRequirements>\n    <Crafting>5</Crafting>\n  </skillRequirements>\n  <workSkill>Crafting</workSkill>\n</RecipeDef>"
+    },
+    "ResearchProjectDef": {
+      "description": "A research project definition - Based on Smithing from Core",
+      "root_tag": "ResearchProjectDef",
+      "xml": "<ResearchProjectDef>\n  <defName>MyResearch</defName>\n  <label>my research</label>\n  <description>Research something useful.</description>\n  <baseCost>1000</baseCost>\n  <techLevel>Medieval</techLevel>\n  <researchViewX>1.00</researchViewX>\n  <researchViewY>3.50</researchViewY>\n  <prerequisites>\n    <li>Electricity</li>\n  </prerequisites>\n</ResearchProjectDef>"
+    },
+    "ThingDef - Simple Item": {
+      "description": "A simple resource/item without stuff properties - Based on Silver from Core",
+      "root_tag": "ThingDef",
+      "xml": "<ThingDef ParentName=\"ResourceBase\">\n  <defName>MyItem</defName>\n  <label>my item</label>\n  <description>A useful item.</description>\n  <graphicData>\n    <texPath>Things/Item/Resource/MyItem</texPath>\n    <graphicClass>Graphic_StackCount</graphicClass>\n  </graphicData>\n  <soundInteract>Silver_Drop</soundInteract>\n  <soundDrop>Silver_Drop</soundDrop>\n  <useHitPoints>false</useHitPoints>\n  <healthAffectsPrice>false</healthAffectsPrice>\n  <statBases>\n    <MarketValue>1</MarketValue>\n    <Mass>0.01</Mass>\n  </statBases>\n  <thingCategories>\n    <li>ResourcesRaw</li>\n  </thingCategories>\n  <stackLimit>500</stackLimit>\n</ThingDef>"
+    },
+    "ThingDef - Fabric/Textile": {
+      "description": "A textile/fabric material - Based on Cloth from Core",
+      "root_tag": "ThingDef",
+      "xml": "<ThingDef ParentName=\"ResourceBase\">\n  <defName>MyFabric</defName>\n  <label>my fabric</label>\n  <description>Fabric woven from fibers.</description>\n  <graphicData>\n    <texPath>Things/Item/Resource/Cloth</texPath>\n    <graphicClass>Graphic_Single</graphicClass>\n    <color>(162,157,152)</color>\n  </graphicData>\n  <statBases>\n    <StuffPower_Armor_Sharp>0.36</StuffPower_Armor_Sharp>\n    <StuffPower_Armor_Blunt>0</StuffPower_Armor_Blunt>\n    <StuffPower_Armor_Heat>0.18</StuffPower_Armor_Heat>\n    <StuffPower_Insulation_Cold>18</StuffPower_Insulation_Cold>\n    <StuffPower_Insulation_Heat>18</StuffPower_Insulation_Heat>\n    <MaxHitPoints>80</MaxHitPoints>\n    <MarketValue>1.5</MarketValue>\n    <Mass>0.026</Mass>\n    <Flammability>1.2</Flammability>\n    <DeteriorationRate>4</DeteriorationRate>\n  </statBases>\n  <burnableByRecipe>true</burnableByRecipe>\n  <healthAffectsPrice>false</healthAffectsPrice>\n  <stuffProps>\n    <categories>\n      <li>Fabric</li>\n    </categories>\n    <color>(162,157,152)</color>\n    <commonality>1.0</commonality>\n    <statFactors>\n      <Flammability>1.2</Flammability>\n      <Beauty>1</Beauty>\n    </statFactors>\n  </stuffProps>\n  <thingCategories>\n    <li>Textiles</li>\n  </thingCategories>\n</ThingDef>"
+    },
+    "ThingDef - Apparel (Basic Clothing)": {
+      "description": "Basic clothing item - Based on T-shirt from Core",
+      "root_tag": "ThingDef",
+      "xml": "<ThingDef ParentName=\"ApparelMakeableBase\">\n  <defName>Apparel_MyShirt</defName>\n  <label>my shirt</label>\n  <description>A simple shirt.</description>\n  <recipeMaker>\n    <researchPrerequisite>ComplexClothing</researchPrerequisite>\n  </recipeMaker>\n  <graphicData>\n    <texPath>Things/Pawn/Humanlike/Apparel/ShirtBasic/ShirtBasic</texPath>\n    <graphicClass>Graphic_Single</graphicClass>\n  </graphicData>\n  <costStuffCount>40</costStuffCount>\n  <stuffCategories>\n    <li>Fabric</li>\n    <li>Leathery</li>\n  </stuffCategories>\n  <thingCategories>\n    <li>ApparelMisc</li>\n  </thingCategories>\n  <statBases>\n    <MaxHitPoints>100</MaxHitPoints>\n    <WorkToMake>1600</WorkToMake>\n    <Mass>0.25</Mass>\n    <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>\n    <StuffEffectMultiplierInsulation_Cold>0.22</StuffEffectMultiplierInsulation_Cold>\n    <StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>\n    <EquipDelay>1.5</EquipDelay>\n  </statBases>\n  <apparel>\n    <bodyPartGroups>\n      <li>Torso</li>\n      <li>Shoulders</li>\n    </bodyPartGroups>\n    <wornGraphicPath>Things/Pawn/Humanlike/Apparel/ShirtBasic/ShirtBasic</wornGraphicPath>\n    <layers>\n      <li>OnSkin</li>\n    </layers>\n    <tags>\n      <li>IndustrialBasic</li>\n    </tags>\n    <defaultOutfitTags>\n      <li>Worker</li>\n      <li>Soldier</li>\n    </defaultOutfitTags>\n  </apparel>\n  <colorGenerator Class=\"ColorGenerator_StandardApparel\" />\n</ThingDef>"
+    },
+    "ThingDef - Apparel (Armor)": {
+      "description": "Armor piece - Based on Flak Vest from Core",
+      "root_tag": "ThingDef",
+      "xml": "<ThingDef ParentName=\"ArmorMachineableBase\">\n  <defName>Apparel_MyArmor</defName>\n  <label>my armor</label>\n  <description>A protective armor vest.</description>\n  <techLevel>Industrial</techLevel>\n  <recipeMaker>\n    <researchPrerequisite>FlakArmor</researchPrerequisite>\n    <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>\n    <skillRequirements>\n      <Crafting>4</Crafting>\n    </skillRequirements>\n  </recipeMaker>\n  <graphicData>\n    <texPath>Things/Pawn/Humanlike/Apparel/FlakVest/FlakVest</texPath>\n    <graphicClass>Graphic_Single</graphicClass>\n  </graphicData>\n  <statBases>\n    <WorkToMake>9000</WorkToMake>\n    <MaxHitPoints>200</MaxHitPoints>\n    <Mass>4</Mass>\n    <Flammability>0.6</Flammability>\n    <ArmorRating_Sharp>1.00</ArmorRating_Sharp>\n    <ArmorRating_Blunt>0.36</ArmorRating_Blunt>\n    <ArmorRating_Heat>0.27</ArmorRating_Heat>\n    <Insulation_Cold>1</Insulation_Cold>\n    <EquipDelay>5</EquipDelay>\n  </statBases>\n  <equippedStatOffsets>\n    <MoveSpeed>-0.12</MoveSpeed>\n  </equippedStatOffsets>\n  <thingCategories>\n    <li>ApparelArmor</li>\n  </thingCategories>\n  <costList>\n    <Cloth>30</Cloth>\n    <Steel>60</Steel>\n    <ComponentIndustrial>1</ComponentIndustrial>\n  </costList>\n  <apparel>\n    <bodyPartGroups>\n      <li>Torso</li>\n      <li>Neck</li>\n    </bodyPartGroups>\n    <wornGraphicPath>Things/Pawn/Humanlike/Apparel/FlakVest/FlakVest</wornGraphicPath>\n    <layers>\n      <li>Middle</li>\n    </layers>\n    <tags>\n      <li>IndustrialMilitaryBasic</li>\n    </tags>\n    <defaultOutfitTags>\n      <li>Soldier</li>\n    </defaultOutfitTags>\n  </apparel>\n</ThingDef>"
+    },
+    "HediffDef - Disease/Condition": {
+      "description": "A health condition or disease - Based on Food Poisoning from Core",
+      "root_tag": "HediffDef",
+      "xml": "<HediffDef ParentName=\"DiseaseBase\">\n  <defName>MyDisease</defName>\n  <label>my disease</label>\n  <description>A health condition that affects the pawn.</description>\n  <initialSeverity>1</initialSeverity>\n  <comps>\n    <li Class=\"HediffCompProperties_SeverityPerDay\">\n      <severityPerDay>-1</severityPerDay>\n    </li>\n  </comps>\n  <stages>\n    <li>\n      <label>recovering</label>\n      <vomitMtbDays>0.4</vomitMtbDays>\n      <painOffset>0.2</painOffset>\n      <capMods>\n        <li>\n          <capacity>Consciousness</capacity>\n          <postFactor>0.6</postFactor>\n        </li>\n        <li>\n          <capacity>Moving</capacity>\n          <postFactor>0.8</postFactor>\n        </li>\n      </capMods>\n    </li>\n    <li>\n      <label>major</label>\n      <minSeverity>0.5</minSeverity>\n      <vomitMtbDays>0.2</vomitMtbDays>\n      <painOffset>0.4</painOffset>\n      <capMods>\n        <li>\n          <capacity>Consciousness</capacity>\n          <postFactor>0.5</postFactor>\n        </li>\n        <li>\n          <capacity>Moving</capacity>\n          <postFactor>0.5</postFactor>\n        </li>\n      </capMods>\n    </li>\n  </stages>\n</HediffDef>"
+    },
+    "HediffDef - Buff/Enhancement": {
+      "description": "A positive hediff that provides benefits - Based on go-juice effects",
+      "root_tag": "HediffDef",
+      "xml": "<HediffDef>\n  <defName>MyBuff</defName>\n  <label>my buff</label>\n  <description>A beneficial enhancement effect.</description>\n  <hediffClass>HediffWithComps</hediffClass>\n  <defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>\n  <isBad>false</isBad>\n  <comps>\n    <li Class=\"HediffCompProperties_Disappears\">\n      <disappearsAfterTicks>2500</disappearsAfterTicks>\n      <showRemainingTime>true</showRemainingTime>\n    </li>\n  </comps>\n  <stages>\n    <li>\n      <capMods>\n        <li>\n          <capacity>Consciousness</capacity>\n          <offset>0.1</offset>\n        </li>\n        <li>\n          <capacity>Moving</capacity>\n          <offset>0.1</offset>\n        </li>\n      </capMods>\n    </li>\n  </stages>\n</HediffDef>"
+    },
+    "PatchOperation - Add": {
+      "description": "Adds a new XML element to the target location",
+      "root_tag": "Operation",
+      "xml": "<Operation Class=\"PatchOperationAdd\">\n  <xpath>Defs/ThingDef[defName=\"MyTarget\"]</xpath>\n  <value>\n    <myNewElement>value</myNewElement>\n  </value>\n</Operation>"
+    },
+    "PatchOperation - Replace": {
+      "description": "Replaces an existing XML element with a new value",
+      "root_tag": "Operation",
+      "xml": "<Operation Class=\"PatchOperationReplace\">\n  <xpath>Defs/ThingDef[defName=\"MyTarget\"]/label</xpath>\n  <value>\n    <label>new label</label>\n  </value>\n</Operation>"
+    },
+    "PatchOperation - Remove": {
+      "description": "Removes an XML element from the target location",
+      "root_tag": "Operation",
+      "xml": "<Operation Class=\"PatchOperationRemove\">\n  <xpath>Defs/ThingDef[defName=\"MyTarget\"]/someElement</xpath>\n</Operation>"
+    },
+    "PatchOperation - FindMod": {
+      "description": "Conditional patch that only runs if a specific mod is loaded",
+      "root_tag": "Operation",
+      "xml": "<Operation Class=\"PatchOperationFindMod\">\n  <mods>\n    <li>ModPackageId</li>\n  </mods>\n  <match Class=\"PatchOperationSequence\">\n    <operations>\n      <li Class=\"PatchOperationAdd\">\n        <xpath>Defs/ThingDef[defName=\"MyTarget\"]</xpath>\n        <value>\n          <myElement>value</myElement>\n        </value>\n      </li>\n    </operations>\n  </match>\n</Operation>"
+    },
+    "PatchOperation - Sequence": {
+      "description": "Runs multiple patch operations in sequence",
+      "root_tag": "Operation",
+      "xml": "<Operation Class=\"PatchOperationSequence\">\n  <operations>\n    <li Class=\"PatchOperationAdd\">\n      <xpath>Defs/ThingDef[defName=\"MyTarget\"]</xpath>\n      <value>\n        <myElement>value</myElement>\n      </value>\n    </li>\n    <li Class=\"PatchOperationReplace\">\n      <xpath>Defs/ThingDef[defName=\"MyTarget\"]/label</xpath>\n      <value>\n        <label>new label</label>\n      </value>\n    </li>\n  </operations>\n</Operation>"
+    },
+    "About.xml - ModMetaData": {
+      "description": "Complete About.xml file structure for a RimWorld mod",
+      "root_tag": "ModMetaData",
+      "xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<ModMetaData>\n  <name>My Mod Name</name>\n  <author>Your Name</author>\n  <packageId>yourname.mymod</packageId>\n  <description>A description of your mod.</description>\n  <supportedVersions>\n    <li>1.5</li>\n  </supportedVersions>\n  <modDependencies>\n    <li>\n      <packageId>ludeon.rimworld</packageId>\n      <displayName>Core</displayName>\n    </li>\n  </modDependencies>\n  <loadAfter>\n    <li>ludeon.rimworld</li>\n  </loadAfter>\n</ModMetaData>"
+    },
+    "Patch File - Complete Structure": {
+      "description": "Complete patch file with Patch root and multiple operations",
+      "root_tag": "Patch",
+      "xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Patch>\n  <Operation Class=\"PatchOperationAdd\">\n    <xpath>Defs/ThingDef[defName=\"MyTarget\"]</xpath>\n    <value>\n      <myNewElement>value</myNewElement>\n    </value>\n  </Operation>\n  \n  <Operation Class=\"PatchOperationReplace\">\n    <xpath>Defs/ThingDef[defName=\"MyTarget\"]/label</xpath>\n    <value>\n      <label>new label</label>\n    </value>\n  </Operation>\n</Patch>"
+    },
+    "Defs File - Complete Structure": {
+      "description": "Complete Defs file structure with multiple definitions",
+      "root_tag": "Defs",
+      "xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Defs>\n  <ThingDef ParentName=\"ResourceBase\">\n    <defName>MyItem</defName>\n    <label>my item</label>\n    <description>A useful item.</description>\n    <graphicData>\n      <texPath>Things/Item/Resource/MyItem</texPath>\n      <graphicClass>Graphic_StackCount</graphicClass>\n    </graphicData>\n    <statBases>\n      <MarketValue>1</MarketValue>\n      <Mass>0.1</Mass>\n    </statBases>\n  </ThingDef>\n  \n  <RecipeDef>\n    <defName>Make_MyItem</defName>\n    <label>make my item</label>\n    <description>Craft my item.</description>\n    <jobString>Making item.</jobString>\n    <workAmount>1000</workAmount>\n    <ingredients>\n      <li>\n        <filter>\n          <thingDefs>\n            <li>Steel</li>\n          </thingDefs>\n        </filter>\n        <count>10</count>\n      </li>\n    </ingredients>\n    <products>\n      <MyItem>1</MyItem>\n    </products>\n  </RecipeDef>\n</Defs>"
+    }
+  }
+}
